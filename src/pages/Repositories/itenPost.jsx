@@ -11,8 +11,8 @@ function componentName({ data, limt, lastPage, active, paginate }) {
     <>
       <div className="repo_wrapper">
         {data.length > 0 ? (
-          lastPage.map((el, id) => (
-            <div key={id} className="repo border-top border-bottom pb-3 pt-3">
+          lastPage.map((el, index) => (
+            <div key={index} className="repo border-top border-bottom pb-3 pt-3">
               <div className="repo_left">
                 <span className="repo_left_one">
                   <div className="repo_left_one_span">
@@ -48,9 +48,10 @@ function componentName({ data, limt, lastPage, active, paginate }) {
         <div>
           <nav aria-label="Page navigation example">
             <ul className="pagination d-flex justify-content-center gap-2 mt-4">
-              {point.map((item) => {
+              {point.map((item,id) => {
                 return (
                   <li
+                  key={id}
                     className={`page-item ${active === item ? "active" : ""}`}
                     onClick={() => paginate(item)}
                   >
